@@ -3,6 +3,14 @@ class Conta {
     private int agencia;                                // atributos privados ñ poderão ser acessados senão através dos geters e seters
     private int numero;             
     private Cliente titular;
+    private static int total;                           // é estático pois é da classe
+    
+
+    public Conta(int agencia, int numero) {             // construtor
+        this.agencia = agencia;
+        this.numero = numero;
+        total ++;
+    }
 
     public void deposita(double valor){
         if (valor > 0) {
@@ -14,7 +22,7 @@ class Conta {
         if(valor > 0 && this.saldo >= valor){
             this.saldo -= valor;
             return true;
-        
+        }
         return false;
     }
 
@@ -45,18 +53,12 @@ class Conta {
         return numero;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
     public int getAgencia() {
         return agencia;
     }
 
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
+    public static int getTotal() {                           // é estático pois é da classe
+        return total;
     }
-
-
 
 }

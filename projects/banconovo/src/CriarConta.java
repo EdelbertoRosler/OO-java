@@ -1,12 +1,12 @@
 public class CriarConta {
     public static void main(String[] args) {
-        Conta conta1 = new Conta();
+        Conta conta1 = new Conta(111, 134531);
         conta1.deposita(500);
         
         Conta conta2 = conta1;                                              // conta2 se referencia ao mesmo objeto da conta1
         conta2.deposita(150);
 
-        Conta conta3 = new Conta();
+        Conta conta3 = new Conta(333, 387763);
         conta3.deposita(1000);
         conta3.setTitular(new Cliente());
 
@@ -26,5 +26,7 @@ public class CriarConta {
         System.out.println("nome: " + conta3.getTitular().getNome());            // GAbriel Rosler
         System.out.println("titular: " + conta3.getTitular().getCpf()); 
         System.out.println("profissão: " + conta3.getTitular().getProfissão()); 
+
+        System.out.println(Conta.getTotal());
     }
 }
